@@ -11,7 +11,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
+        headline: ['"Space Grotesk"', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
@@ -95,5 +95,11 @@ export default {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'),  function({ addUtilities }) {
+      addUtilities({
+        '.aspect-square': {
+          'aspect-ratio': '1 / 1',
+        },
+      })
+    }],
 } satisfies Config;
